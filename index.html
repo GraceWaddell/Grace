@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sea La Vie | Grace Waddell</title>
+<meta name="description" content="Sea La Vie — a beautiful coastal escape by Grace Waddell.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;color:#193635;background:#f7f5ef;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,90%);margin:auto}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.96);border-bottom:1px solid #e8e8e3}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo,h1,h2,h3{font-family:"Playfair Display",serif}
+.logo{font-size:25px;color:#173b3b}
+nav{display:flex;gap:27px;font-size:14px}
+nav a:hover{color:#b99758}
+.book{background:#173b3b;color:#fff;padding:12px 20px;font-size:13px}
+.menu{display:none;background:none;border:0;font-size:27px}
+.hero{min-height:880px;display:flex;align-items:center;position:relative;color:#fff;background:linear-gradient(90deg,#092e2dcc,#092e2d33),url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=85") center/cover}
+.hero-content{padding-top:80px}
+.eyebrow,.label{color:#d2b16e;letter-spacing:3px;font-size:12px;font-weight:700}
+.hero h1{font-size:clamp(55px,8vw,100px);line-height:1.02;margin:20px 0}
+.hero p{font-size:18px;max-width:530px;color:#eef2ef;margin-bottom:30px}
+.btn{display:inline-block;padding:15px 27px;margin-right:10px;font-weight:600;font-size:14px}
+.primary{background:#fff;color:#173b3b}.secondary{border:1px solid #fff;color:#fff}
+.section{padding:110px 0}
+.white{background:#fff}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split-img{height:610px;background:url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=85") center/cover}
+h2{font-size:clamp(40px,5vw,62px);line-height:1.1;color:#173b3b;margin:15px 0 25px}
+.copy p{color:#5b6a68;margin-bottom:17px}
+.link{display:inline-block;margin-top:10px;font-weight:700;border-bottom:1px solid #b99758}
+.heading{text-align:center;max-width:700px;margin:0 auto 55px}
+.heading p:last-child{color:#5b6a68}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #e0e4df;border-left:1px solid #e0e4df}
+.card{padding:42px 35px;border-right:1px solid #e0e4df;border-bottom:1px solid #e0e4df}
+.card b{color:#b99758;font-size:13px;letter-spacing:2px}
+.card h3{font-size:25px;margin:17px 0 10px}
+.card p{color:#5b6a68}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.photo{height:310px;overflow:hidden;background-size:cover;background-position:center}
+.photo:first-child{grid-column:span 2;height:635px}
+.p1{background-image:url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85")}
+.p2{background-image:url("https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1000&q=85")}
+.p3{background-image:url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85")}
+.p4{background-image:url("https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1000&q=85")}
+.p5{background-image:url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85")}
+.p6{background-image:url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=85")}
+.availability{background:#fff}
+.calendar{max-width:900px;margin:auto;border:1px solid #e0e4df;padding:30px;background:#fff}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.cal-head h3{font-size:28px}.cal-head button{width:45px;height:45px;border:1px solid #ddd;background:#fff;font-size:28px;cursor:pointer}
+.week,.days{display:grid;grid-template-columns:repeat(7,1fr)}
+.week span{text-align:center;font-size:12px;font-weight:700;padding:12px;color:#657370}
+.day{min-height:68px;border:1px solid #edf0ed;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px}
+.day.available{background:#edf7ef;color:#245b34}.day.booked{background:#f8e9e9;color:#a33636;cursor:not-allowed}.day:hover{outline:2px solid #d2b16e}
+.legend{text-align:center;margin-top:25px;font-size:13px}.legend i,.legend em{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:5px;background:#bfe1c5}.legend em{background:#e6b5b5}
+.cta{background:#0c2929;color:#fff;text-align:center;padding:115px 0}
+.cta h2{color:#fff;font-size:clamp(45px,7vw,75px)}
+.cta>p{color:#c5cecb;margin:0 auto 40px}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:1000px;margin:auto}
+.contact{border:1px solid #36504e;padding:20px;text-align:left;display:flex;gap:14px;align-items:center;transition:.25s}
+.contact:hover{border-color:#d2b16e;background:#ffffff0b}
+.contact .icon{font-size:25px}.contact small{display:block;color:#d2b16e;font-size:10px;letter-spacing:1px}.contact strong{display:block;font-size:14px;color:#fff}
+footer{background:#081e1e;color:#fff;padding:45px 0}footer .footer{display:flex;justify-content:space-between;gap:20px}footer p{color:#aab4b1;font-size:13px}
+@media(max-width:850px){nav,.book{display:none}.menu{display:block}.split{grid-template-columns:1fr;gap:45px}.split-img{height:450px}.cards{grid-template-columns:1fr 1fr}.contacts{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.photo:first-child{grid-column:span 2}}
+@media(max-width:550px){.section{padding:75px 0}.hero{min-height:760px}.hero h1{font-size:54px}.hero .btn{margin-bottom:10px}.cards,.gallery{grid-template-columns:1fr}.photo:first-child{grid-column:auto;height:340px}.photo{height:280px}.day{min-height:52px}.week span{font-size:9px;padding:8px 1px}footer .footer{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="nav container">
+<a class="logo" href="#home">Grace Waddell</a>
+<nav><a href="#home">Home</a><a href="#about">About</a><a href="#features">Features</a><a href="#gallery">Gallery</a><a href="#availability">Availability</a><a href="#contact">Contact</a></nav>
+<a class="book" href="#contact">Book Your Stay</a><button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<section class="hero" id="home"><div class="container hero-content">
+<div class="eyebrow">WELCOME TO SEA LA VIE</div>
+<h1>Your Perfect<br>Coastal Escape</h1>
+<p>Relax, unwind and enjoy beautiful coastal surroundings at Sea La Vie.</p>
+<a class="btn primary" href="#availability">Check Availability</a><a class="btn secondary" href="#gallery">Explore</a>
+</div></section>
+
+<section class="section" id="about"><div class="container split">
+<div class="split-img"></div><div class="copy"><div class="label">SEA LA VIE</div><h2>Luxury Coastal Caravan Escape</h2>
+<p>Escape to the beautiful Ayrshire coast and enjoy stunning sea views, peaceful surroundings, and everything Craig Tara Haven has to offer.</p>
+<p>Sea La Vie is a modern and stylish holiday retreat designed with comfort and relaxation in mind.</p>
+<p>Wake up to beautiful coastal views, enjoy your morning coffee on the decking, and spend your evenings relaxing after exploring the beach and surrounding attractions.</p>
+<a class="link" href="#contact">Plan Your Escape →</a></div>
+</div></section>
+
+<section class="section white" id="features"><div class="container"><div class="heading"><div class="label">EXPERIENCE</div><h2>Everything You Need</h2><p>Designed for comfort, relaxation and memorable coastal getaways.</p></div>
+<div class="cards">
+<div class="card"><b>01</b><h3>Stunning Sea Views</h3><p>Enjoy beautiful coastal views and unforgettable sunsets.</p></div>
+<div class="card"><b>02</b><h3>Spacious Accommodation</h3><p>Comfortable accommodation for families and groups.</p></div>
+<div class="card"><b>03</b><h3>Private Decking</h3><p>Unwind outdoors in a peaceful coastal setting.</p></div>
+<div class="card"><b>04</b><h3>Family Entertainment</h3><p>Enjoy attractions and entertainment nearby.</p></div>
+<div class="card"><b>05</b><h3>Fast Internet</h3><p>Stay connected throughout your stay.</p></div>
+<div class="card"><b>06</b><h3>Private Parking</h3><p>Convenient parking is available beside the accommodation.</p></div>
+</div></div></section>
+
+<section class="section" id="gallery"><div class="container"><div class="heading"><div class="label">EXPLORE</div><h2>Explore Sea La Vie</h2><p>Take a look around your coastal getaway.</p></div>
+<div class="gallery"><div class="photo p1"></div><div class="photo p2"></div><div class="photo p3"></div><div class="photo p4"></div><div class="photo p5"></div><div class="photo p6"></div></div></div></section>
+
+<section class="section availability" id="availability"><div class="container"><div class="heading"><div class="label">PLAN YOUR STAY</div><h2>Check Availability</h2><p>Select an available date and enquire directly with Grace.</p></div>
+<div class="calendar"><div class="cal-head"><button id="prev">‹</button><h3 id="month"></h3><button id="next">›</button></div><div class="week"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div><div class="days" id="days"></div><p class="legend"><i></i> Available &nbsp;&nbsp; <em></em> Booked</p></div></div></section>
+
+<section class="cta" id="contact"><div class="container"><div class="label">READY TO ESCAPE?</div><h2>Ready To Escape<br>To The Coast?</h2><p>Relax, unwind, and enjoy stunning sea views at Sea La Vie.</p>
+<div class="contacts">
+<a class="contact" href="tel:+447508940655"><span class="icon">☎</span><span><small>CALL ME</small><strong>+44 7508940655</strong></span></a>
+<a class="contact" href="https://wa.me/447508940655" target="_blank"><span class="icon">💬</span><span><small>WHATSAPP ME</small><strong>+44 7508940655</strong></span></a>
+<a class="contact" href="mailto:graceirass@gmail.com"><span class="icon">✉</span><span><small>EMAIL ME</small><strong>graceirass@gmail.com</strong></span></a>
+</div></div></section>
+
+<footer><div class="container footer"><div><h3>Grace Waddell</h3><p>Sea La Vie</p></div><p>© 2026 Grace Waddell. All Rights Reserved.</p></div></footer>
+
+<script>
+const days=document.getElementById("days"),month=document.getElementById("month");
+let date=new Date(),m=date.getMonth(),y=date.getFullYear();
+const booked=["2026-08-12","2026-08-13","2026-08-14","2026-08-25","2026-08-26"];
+function key(y,m,d){return y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0")}
+function render(){
+ days.innerHTML="";
+ let first=new Date(y,m,1).getDay(); first=first===0?6:first-1;
+ let total=new Date(y,m+1,0).getDate();
+ month.textContent=new Date(y,m).toLocaleString("en",{month:"long",year:"numeric"});
+ for(let i=0;i<first;i++){let e=document.createElement("div");e.className="day";days.appendChild(e)}
+ for(let n=1;n<=total;n++){
+  let e=document.createElement("div"),k=key(y,m,n);
+  e.className="day "+(booked.includes(k)?"booked":"available");e.textContent=n;
+  e.onclick=()=>booked.includes(k)?alert("Sorry, this date is already booked."):window.open("https://wa.me/447508940655?text="+encodeURIComponent("Hello Grace, I would like to enquire about booking Sea La Vie for "+k+"."),"_blank");
+  days.appendChild(e);
+ }
+}
+document.getElementById("prev").onclick=()=>{m--;if(m<0){m=11;y--}render()};
+document.getElementById("next").onclick=()=>{m++;if(m>11){m=0;y++}render()};
+render();
+</script>
+</body>
+</html>
